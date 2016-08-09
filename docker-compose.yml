@@ -1,0 +1,24 @@
+version: '2'
+services:
+  nginx:
+    image: city-owned-property-nginx
+    build:
+      context: ./src/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "9100:80"
+    links:
+      - flask
+    volumes:
+      - ./src/nginx/srv/dist:/srv/dist:ro
+
+  flask:
+    image: city-owned-property-flask
+    build:
+      context: ./src/flask
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    volumes:
+      - ./src/flask/api:/usr/src/api

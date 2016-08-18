@@ -14,6 +14,7 @@ Login to a running Docker container\'s shell.
 Options:
     flask     Flask container
     nginx     Nginx container
+    database  psql shell in database container
     help      Display this help text
 "
 }

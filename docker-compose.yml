@@ -20,5 +20,13 @@ services:
     ports:
       - "8080:8080"
       - "8081:8081"
+  database:
+    image: quay.io/azavea/postgis:9.5.3
+    environment:
+      - POSTGRES_USER=azavea
+      - POSTGRES_PASSWORD=azavea
+      - POSTGRES_DB=city_owned_property
+    ports:
+      - "5432:5432"
     volumes:
-      - ./src/flask/api:/usr/src/api
+      - /var/dbdata:/var/lib/postgresql/data

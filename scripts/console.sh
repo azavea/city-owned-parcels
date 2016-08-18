@@ -12,15 +12,15 @@ usage() {
 Login to a running Docker container\'s shell.
 
 Options:
-    flask     Flask container
-    nginx     Nginx container
+    app       app container
+    nginx     nginx container
     database  psql shell in database container
     help      Display this help text
 "
 }
 
 case $1 in
-    flask|nginx)      NORMAL_CONTAINER=1 ;;
+    app|nginx)  NORMAL_CONTAINER=1 ;;
     database)         DATABASE_CONTAINER=1 ;;
     help|*)           usage; exit 1 ;;
 esac

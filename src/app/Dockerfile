@@ -2,13 +2,15 @@ FROM quay.io/azavea/flask:0.11
 
 MAINTAINER Azavea
 
-RUN apt-get update
+RUN apt-get update && \
+    apt-get install -y curl=7.38.0-4+deb8u4
 
 RUN pip install --upgrade pip
 COPY requirements.txt /tmp/
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY ./api /usr/src/api
+COPY ./etl /usr/src/etl
 
 WORKDIR /usr/src/api
 

@@ -26,6 +26,7 @@ services:
       - POSTGRES_USER=azavea
       - POSTGRES_PASSWORD=azavea
       - POSTGRES_DB=city_owned_property
+      - POSTGRES_HOST=database.internal
       - POSTGRES_PORT=5432
     volumes:
       - ./src/app/:/usr/src/

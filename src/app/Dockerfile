@@ -3,7 +3,9 @@ FROM quay.io/azavea/flask:0.11
 MAINTAINER Azavea
 
 RUN apt-get update && \
-    apt-get install -y curl=7.38.0-4+deb8u4
+    apt-get install -y \
+    curl=7.38.0-4+deb8u4 \
+    libpq-dev=9.4.9-0+deb8u1
 
 RUN pip install --upgrade pip
 COPY requirements.txt /tmp/
